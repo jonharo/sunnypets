@@ -1,0 +1,208 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-10">
+
+        <div *ngFor="let pet of pets | async" class="col-md-4">
+          <div class="card card-profile">
+            <div class="card-avatar">
+              <a href="#pablo">
+                <img class="img" src="{{pet.photoURL}}" />
+              </a>
+            </div>
+            <div class="card-content">
+              <h6 class="category text-gray">"{{pet.petInfo.petNick}}"</h6>
+              <h4 class="card-title">{{pet.petInfo.petName}}</h4>
+              <p class="description">
+                <ul>
+                  <li>Birthday: {{pet.petInfo.petBirthday}}</li>
+                  <li>Breed: {{pet.petInfo.petBreed}}</li>
+                  <li>Color: {{pet.petInfo.petColor}}</li>
+                </ul>
+              <a href="#pablo" class="btn btn-rose btn-round">Edit</a>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+        <!--<div class="card">-->
+          <!--<div class="card-header card-header-icon"-->
+               <!--data-background-color="rose">-->
+            <!--<i class="material-icons">face</i>-->
+          <!--</div>-->
+
+          <!--<div class="card-content">-->
+            <!--<h4 class="card-title">Pet Profile</h4>-->
+
+
+            <!--&lt;!&ndash;<form novalidate&ndash;&gt;-->
+                  <!--&lt;!&ndash;[formGroup]="contactInfoForm"&ndash;&gt;-->
+                  <!--&lt;!&ndash;(ngSubmit)="updateForm('contactInfo', contactInfoForm)">&ndash;&gt;-->
+
+              <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="col-sm-6">&ndash;&gt;-->
+                  <!--&lt;!&ndash;<div [ngClass]="(contactInfoForm.get('firstName').invalid)?'has-error':'has-success'"&ndash;&gt;-->
+                       <!--&lt;!&ndash;class="form-group&ndash;&gt;-->
+                              <!--&lt;!&ndash;label-floating&ndash;&gt;-->
+                              <!--&lt;!&ndash;form-warning">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<label for="firstName"&ndash;&gt;-->
+                           <!--&lt;!&ndash;class="control-label">First Name</label>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<input formControlName="firstName"&ndash;&gt;-->
+                           <!--&lt;!&ndash;id="firstName"&ndash;&gt;-->
+                           <!--&lt;!&ndash;class="form-control"&ndash;&gt;-->
+                           <!--&lt;!&ndash;name="firstName"&ndash;&gt;-->
+                           <!--&lt;!&ndash;required>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<span *ngIf="contactInfoForm.get('firstName').hasError('required')"&ndash;&gt;-->
+                          <!--&lt;!&ndash;class="form-error">&ndash;&gt;-->
+                      <!--&lt;!&ndash;<small>required</small>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</span>&ndash;&gt;-->
+                  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<div class="col-sm-6">&ndash;&gt;-->
+                  <!--&lt;!&ndash;<div [ngClass]="(contactInfoForm.get('lastName').invalid)?'has-error':'has-success'"&ndash;&gt;-->
+                       <!--&lt;!&ndash;class="form-group&ndash;&gt;-->
+                              <!--&lt;!&ndash;label-floating&ndash;&gt;-->
+                              <!--&lt;!&ndash;form-warning">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<label for="lastName"&ndash;&gt;-->
+                           <!--&lt;!&ndash;class="control-label">Last Name</label>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<input formControlName="lastName"&ndash;&gt;-->
+                           <!--&lt;!&ndash;id="lastName"&ndash;&gt;-->
+                           <!--&lt;!&ndash;class="form-control"&ndash;&gt;-->
+                           <!--&lt;!&ndash;name="lastName"&ndash;&gt;-->
+                           <!--&lt;!&ndash;required>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<span *ngIf="contactInfoForm.get('lastName').hasError('required')"&ndash;&gt;-->
+                          <!--&lt;!&ndash;class="form-error">&ndash;&gt;-->
+                      <!--&lt;!&ndash;<small>required</small>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</span>&ndash;&gt;-->
+                  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+              <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+              <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="col-sm-6">&ndash;&gt;-->
+                  <!--&lt;!&ndash;<div [ngClass]="(contactInfoForm.get('streetAddress').invalid)?'has-error':'has-success'"&ndash;&gt;-->
+                       <!--&lt;!&ndash;class="form-group&ndash;&gt;-->
+                              <!--&lt;!&ndash;label-floating&ndash;&gt;-->
+                              <!--&lt;!&ndash;form-warning">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<label for="streetAddress"&ndash;&gt;-->
+                           <!--&lt;!&ndash;class="control-label">Street Address</label>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<input formControlName="streetAddress"&ndash;&gt;-->
+                           <!--&lt;!&ndash;id="streetAddress"&ndash;&gt;-->
+                           <!--&lt;!&ndash;class="form-control"&ndash;&gt;-->
+                           <!--&lt;!&ndash;name="streetAddress"&ndash;&gt;-->
+                           <!--&lt;!&ndash;required>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<span *ngIf="contactInfoForm.get('streetAddress').hasError('required')"&ndash;&gt;-->
+                          <!--&lt;!&ndash;class="form-error">&ndash;&gt;-->
+                      <!--&lt;!&ndash;<small>required</small>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</span>&ndash;&gt;-->
+                  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<div class="col-sm-3">&ndash;&gt;-->
+                  <!--&lt;!&ndash;<div [ngClass]="(contactInfoForm.get('zipCode').invalid)?'has-error':'has-success'"&ndash;&gt;-->
+                       <!--&lt;!&ndash;class="form-group&ndash;&gt;-->
+                              <!--&lt;!&ndash;label-floating&ndash;&gt;-->
+                              <!--&lt;!&ndash;form-warning">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<label for="zipCode"&ndash;&gt;-->
+                           <!--&lt;!&ndash;class="control-label">Zip Code</label>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<input formControlName="zipCode"&ndash;&gt;-->
+                           <!--&lt;!&ndash;id="zipCode"&ndash;&gt;-->
+                           <!--&lt;!&ndash;class="form-control"&ndash;&gt;-->
+                           <!--&lt;!&ndash;name="zipCode"&ndash;&gt;-->
+                           <!--&lt;!&ndash;required>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<span *ngIf="contactInfoForm.get('zipCode').hasError('required')"&ndash;&gt;-->
+                          <!--&lt;!&ndash;class="form-error">&ndash;&gt;-->
+                      <!--&lt;!&ndash;<small>required</small>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</span>&ndash;&gt;-->
+                  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<div class="col-sm-3">&ndash;&gt;-->
+                  <!--&lt;!&ndash;<div [ngClass]="(contactInfoForm.get('neighborhood').invalid)?'has-error':'has-success'"&ndash;&gt;-->
+                       <!--&lt;!&ndash;class="form-group&ndash;&gt;-->
+                              <!--&lt;!&ndash;label-floating&ndash;&gt;-->
+                              <!--&lt;!&ndash;form-warning">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<label for="neighborhood"&ndash;&gt;-->
+                           <!--&lt;!&ndash;class="control-label">Neighborhood</label>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<input formControlName="neighborhood"&ndash;&gt;-->
+                           <!--&lt;!&ndash;id="neighborhood"&ndash;&gt;-->
+                           <!--&lt;!&ndash;class="form-control"&ndash;&gt;-->
+                           <!--&lt;!&ndash;name="neighborhood"&ndash;&gt;-->
+                           <!--&lt;!&ndash;required>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<span *ngIf="contactInfoForm.get('neighborhood').hasError('required')"&ndash;&gt;-->
+                          <!--&lt;!&ndash;class="form-error">&ndash;&gt;-->
+                      <!--&lt;!&ndash;<small>required</small>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</span>&ndash;&gt;-->
+                  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+              <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+              <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="col-sm-6">&ndash;&gt;-->
+                  <!--&lt;!&ndash;<div [ngClass]="(contactInfoForm.get('mobilePhone').invalid)?'has-error':'has-success'"&ndash;&gt;-->
+                       <!--&lt;!&ndash;class="form-group&ndash;&gt;-->
+                              <!--&lt;!&ndash;label-floating&ndash;&gt;-->
+                              <!--&lt;!&ndash;form-warning">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<label for="mobilePhone"&ndash;&gt;-->
+                           <!--&lt;!&ndash;class="control-label">Mobile Phone</label>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<input formControlName="mobilePhone"&ndash;&gt;-->
+                           <!--&lt;!&ndash;id="mobilePhone"&ndash;&gt;-->
+                           <!--&lt;!&ndash;class="form-control"&ndash;&gt;-->
+                           <!--&lt;!&ndash;name="mobilePhone"&ndash;&gt;-->
+                           <!--&lt;!&ndash;required>&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;<span *ngIf="contactInfoForm.get('mobilePhone').hasError('required')"&ndash;&gt;-->
+                          <!--&lt;!&ndash;class="form-error">&ndash;&gt;-->
+                      <!--&lt;!&ndash;<small>required</small>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</span>&ndash;&gt;-->
+                  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<div class="col-sm-6">&ndash;&gt;-->
+                  <!--&lt;!&ndash;<div [ngClass]="(contactInfoForm.get('email').invalid)?'has-error':'has-success'"&ndash;&gt;-->
+                       <!--&lt;!&ndash;class="form-group&ndash;&gt;-->
+                              <!--&lt;!&ndash;label-static&ndash;&gt;-->
+                              <!--&lt;!&ndash;form-warning">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<label for="email"&ndash;&gt;-->
+                           <!--&lt;!&ndash;class="control-label">Email</label>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<input formControlName="email"&ndash;&gt;-->
+                           <!--&lt;!&ndash;id="email"&ndash;&gt;-->
+                           <!--&lt;!&ndash;class="form-control"&ndash;&gt;-->
+                           <!--&lt;!&ndash;name="email"&ndash;&gt;-->
+                           <!--&lt;!&ndash;required>&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;<span *ngIf="contactInfoForm.get('email').hasError('required')"&ndash;&gt;-->
+                          <!--&lt;!&ndash;class="form-error">&ndash;&gt;-->
+                      <!--&lt;!&ndash;<small>required</small>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</span>&ndash;&gt;-->
+                  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+              <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+
+              <!--&lt;!&ndash;<button type="submit"&ndash;&gt;-->
+                      <!--&lt;!&ndash;class="btn btn-rose pull-right"&ndash;&gt;-->
+                      <!--&lt;!&ndash;[disabled]="contactInfoForm.invalid">Update</button>&ndash;&gt;-->
+              <!--&lt;!&ndash;<div class="clearfix"></div>&ndash;&gt;-->
+
+            <!--&lt;!&ndash;</form>&ndash;&gt;-->
+
+          <!--</div>-->
+        <!--</div>-->
+
+      </div>
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+  <div class="card card-signup">
+
+    <form novalidate
+          [formGroup]="signUpForm"
+          (ngSubmit)="onSubmit(signUpForm)">
+
+      <div class="header header-warning text-center">
+        <h4 class="card-title">Sign Up</h4>
+
+        <div class="social-line">
+          <div (click)="signUpGoogle()" class="btn btn-just-icon btn-simple">
+            <i class="fa fa-google"></i>
+          </div>
+          <div (click)="signUpFacebook()" class="btn btn-just-icon btn-simple">
+            <i class="fa fa-facebook-square"></i>
+          </div>
+          <!--<div (click)="loginTwitter()" class="btn btn-just-icon btn-simple">-->
+            <!--<i class="fa fa-twitter"></i>-->
+          <!--</div>-->
+        </div>
+      </div>
+
+      <p class="description text-center">Or Be Old School</p>
+
+      <div class="content">
+
+        <div class="col-xs-12">
+          <div class="input-group">
+            <span class="input-group-addon">
+                <i class="material-icons">mail_outline</i>
+            </span>
+            <div class="form-group label-floating form-warning form-user">
+              <label for="email" class="control-label">Email</label>
+              <input #email formControlName="email" id="email" type="email" class="form-control" name="email">
+            </div>
+          </div>
+
+          <div class="input-group">
+            <span class="input-group-addon">
+                <i class="material-icons">lock_outline</i>
+            </span>
+
+            <div class="form-group label-floating form-warning form-user">
+              <label for="password" class="control-label">Password</label>
+              <input #password formControlName="password" id="password" type="password" class="form-control" name="password">
+            </div>
+          </div>
+
+          <div class="input-group">
+            <span class="input-group-addon">
+                <i class="material-icons">lock_outline</i>
+            </span>
+
+            <div class="form-group label-floating form-warning form-user">
+              <label for="passwordConfirm" class="control-label">Confirm</label>
+              <input formControlName="passwordConfirm" id="passwordConfirm" type="password" class="form-control" name="passwordConfirm">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer text-center">
+        <!--<div class="col-md-6">-->
+          <!--captcha-->
+          <!--<re-captcha site_key="6LeCkxsUAAAAAE-DVrShMFGLxzqBiLzJnxdPkY1d" (captchaResponse)="handleCorrectCaptcha($event)"></re-captcha>-->
+          <!--{{signUpForm.get('email').value}}-->
+        <!--</div>-->
+        <!--<button type="submit" [disabled]="!passwordMatchValidator()" class="btn btn-warning btn-simple btn-wd btn-lg">Enter</button>-->
+        <button type="submit" class="btn btn-warning btn-simple btn-wd btn-lg" [disabled]="signUpForm.invalid">Let's Go</button>
+
+      </div>
+
+    </form>
+
+  </div>
+</div>

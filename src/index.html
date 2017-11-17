@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sunny Pets</title>
+    <base href="/">
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="theme-color" content="#ff9800">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="description" content="Sunny Pets offers dog walking and pet sitting services to the San Diego areas of Hillcrest, Mission Hills, Bankers Hill, University Heights, North Park, South Park, Golden Hill, Normal Heights, Downtown" />
+    <meta name="keywords" content="dog, walking, walker, pet, san, diego, sitting, sitter, services, service, care, taxi, san diego" />
+
+    <link rel="icon" sizes="192x192" href="assets/favicon-hi-res.png">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/loader.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/loading.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/sweetalert2.min.css" />
+    <link rel="stylesheet" name="landing" type="text/css" href="landing.bundle.css" />
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+    <!--TODO: Are the google tag manager and google analytics tags correct? Am I missing any scripts???-->
+    <!-- Google Tag Manager -->
+    <!--<script>-->
+      <!--(function(w,d,s,l,i){-->
+        <!--w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);-->
+      <!--})-->
+      <!--(window,document,'script','dataLayer','GTM-THF2WCK');-->
+    <!--</script>-->
+    <!-- End Google Tag Manager -->
+
+  </head>
+
+  <body>
+    <!--Facebook-->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1624508754296309',
+          cookie     : true,
+          xfbml      : true,
+          version    : 'v2.10'
+        });
+        FB.AppEvents.logPageView();
+      };
+      (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <sp-root>
+      <div class="loader">
+        <svg class="circular" viewBox="25 25 50 50">
+          <img src="assets/img/navbar-brand-logo-orange-small.png" height="50px" class="ld ld-spin">
+          <!--<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>-->
+        </svg>
+      </div>
+    </sp-root>
+
+  </body>
+</html>

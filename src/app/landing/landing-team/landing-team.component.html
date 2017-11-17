@@ -1,0 +1,34 @@
+<div class="team-4">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 text-center">
+        <h2 class="title">Meet the Sunny Pets Team</h2>
+        <h5 class="description">
+          Every one of our team members strives to provide the best! That means putting you and your pets first. Between everyone on the team, we're available evenings, weekends and year round including all major holidays
+        </h5>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div *ngFor="let teamMember of teamMembers" class="col-md-4">
+        <div class="card card-profile section-white">
+          <div class="card-avatar">
+            <img class="img" src="{{teamMember.img}}" alt="{{teamMember.img_alt}}">
+          </div>
+
+          <div class="card-content">
+            <h4 class="card-title">{{teamMember.name}}</h4>
+            <h6 class="category text-muted">{{teamMember.title}}</h6>
+            <p class="card-description">
+              {{teamMember.blurb}}
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

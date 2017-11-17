@@ -1,0 +1,92 @@
+<sp-landing-nav></sp-landing-nav>
+
+<div class="page-header header-filter header-small header-promo" data-parallax="true" style="background-image: url('../assets/img/promo/thanksgiving/dogs-in-leaves.jpg');">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="brand promo-brand">
+          <h1 class="title">
+            {{pageTitleLn1}} <br />
+            {{pageTitleLn2}}
+          </h1>
+          <h4>{{pageSubHeading}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main main-raised promo-main">
+  <div class="section">
+    <div class="container">
+      <div class="row">
+
+        <div *ngFor="let promo of promos" class="col-md-{{promo.size}}">
+          <div class="card card-background" [style.background-image]="'url(' + promo.imgUrl + ')' | safeStyle">
+            <div class="card-content">
+              <h6 class="category text-info">{{promo.title}}</h6>
+              <h3 class="card-title">{{promo.heading}}</h3>
+              <p class="card-description">
+                {{promo.blurb}}
+              </p>
+              <a routerLink="{{promo.linkUrl}}" class="btn btn-primary btn-wide btn-round">
+                <i class="material-icons">{{promo.icon}}</i> {{promo.linkText}}
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div><!-- section -->
+
+</div>
+
+<div class="section"></div>
+
+<sp-landing-footer></sp-landing-footer>
+
+<!--<div class="col-md-4">-->
+<!--<div class="card card-blog">-->
+<!--<div class="card-image">-->
+<!--<a href="#pablo">-->
+<!--<img class="img img-raised" src="../assets/img/examples/blog6.jpg">-->
+<!--</a>-->
+<!--<div class="colored-shadow" style="background-image: url(../assets/img/examples/blog6.jpg); opacity: 1;"></div>-->
+<!--</div>-->
+<!--<div class="card-content card-promo">-->
+
+
+<!--<h6 class="category text-info">Bark at the Park</h6>-->
+<!--<a href="#pablo">-->
+<!--<h3 class="card-title">20% Off Park Visit</h3>-->
+<!--</a>-->
+<!--<p class="card-description">-->
+<!--Tucker your pup out until they're dog tired!-->
+<!--</p>-->
+<!--<a href="#pablo" class="btn btn-white btn-round">-->
+<!--<i class="material-icons">pets</i>Sign Up-->
+<!--</a>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="col-md-4">-->
+  <!--<div class="card card-background" style="background-image: url(../assets/img/examples/chris1.jpg)">-->
+    <!--<div class="card-content">-->
+      <!--<h6 class="category text-info">Productivy Apps</h6>-->
+      <!--<a href="#pablo">-->
+        <!--<h3 class="card-title">Learn how to use the new colors of 2017</h3>-->
+      <!--</a>-->
+      <!--<p class="card-description">-->
+        <!--Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...-->
+      <!--</p>-->
+      <!--<a href="#pablo" class="btn btn-white btn-round">-->
+        <!--<i class="material-icons">subject</i> Read-->
+      <!--</a>-->
+    <!--</div>-->
+  <!--</div> &lt;!&ndash; end card &ndash;&gt;-->
+<!--</div>-->
+
+

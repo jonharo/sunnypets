@@ -1,0 +1,109 @@
+<nav class="navbar navbar-default navbar-fixed-top navbar-color-on-scroll navbar-transparent">
+
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a pageScroll
+         href="#home"
+         class="navbar-brand"
+         data-toggle="collapse"
+         routerLink="/">
+        Sunny
+        <img src="assets/img/navbar-brand-logo-orange-small.png">
+        Pets
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav btn-right">
+        <li data-toggle="collapse"
+            data-target=".in">
+          <a href="#features"
+             pageScroll
+             [pageScrollOffset]="170"
+             routerLink="/features">
+            Features
+          </a>
+        </li>
+
+        <li data-toggle="collapse"
+            data-target=".in">
+          <a href="#team"
+             pageScroll
+             routerLink="/team">
+            Our Team
+          </a>
+        </li>
+
+        <li data-toggle="collapse"
+            data-target=".in">
+          <a href="#rates"
+             pageScroll
+             [pageScrollOffset]="50"
+             routerLink="/rates">
+            Rates
+          </a>
+        </li>
+
+        <li data-toggle="collapse"
+            data-target=".in">
+          <a href="#testimonials"
+             pageScroll
+             routerLink="/testimonials">
+            Testimonials
+          </a>
+        </li>
+
+        <li data-toggle="collapse"
+            data-target=".in">
+          <a href="#quote"
+             routerLink="/quote"
+             pageScroll
+             [pageScrollOffset]="150">
+            Quote
+          </a>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right btn-left">
+        <li *ngIf="!user"
+            data-toggle="collapse"
+            data-target=".in">
+          <a class="btn btn-sm btn-warning btn-round"
+             routerLink="/signup">
+            Sign Up
+          </a>
+        </li>
+        <li *ngIf="!user"
+            data-toggle="collapse"
+            data-target=".in">
+          <a class="btn btn-sm btn-warning btn-round"
+             routerLink="/signin">
+            Sign In
+          </a>
+        </li>
+        <li *ngIf="user"
+            data-toggle="collapse"
+            data-target=".in">
+          <a class="btn btn-sm btn-warning btn-round"
+             routerLink="/dashboard">
+            Dashboard
+          </a>
+        </li>
+        <li *ngIf="user"
+            data-toggle="collapse"
+            data-target=".in">
+          <a class="btn btn-sm btn-warning btn-round"
+             (click)="signOut()">
+            Logout
+          </a>
+        </li>
+      </ul>
+  </div>
+

@@ -1,0 +1,93 @@
+<div parallax [config]="parallaxConfig" class="testimonials-1 testimonials-background section-image" style="">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <h2 class="title">Your Neighbors Love Us</h2>
+        <h5 class="description">
+          Don't take our word for it. Check out what other San Diegans are saying about our customer service and reliability.
+        </h5>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div *ngFor="let review of reviews" class="col-md-4">
+        <div class="card card-testimonial">
+          <div class="icon yelp">
+            <i class="star-rating material-icons">star_rate</i>
+            <i class="star-rating material-icons">star_rate</i>
+            <i class="star-rating material-icons">star_rate</i>
+            <i class="star-rating material-icons">star_rate</i>
+            <i class="star-rating material-icons">star_rate</i>
+          </div>
+          <div class="card-content">
+            <h5 class="card-description">
+              {{review.text}}
+            </h5>
+          </div>
+
+          <div class="footer">
+            <h4 class="card-title">{{review.user.name}}</h4>
+            <a href="{{review.url}}" target="_blank">
+              <h6 class="category yelp text-center">
+                <i class="fa fa-yelp"></i> Yelp
+              </h6>
+            </a>
+            <div class="card-avatar">
+              <img class="img" src="{{review.user.image_url || defaultAvatar}}">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--<div class="col-md-4">-->
+        <!--<div class="card card-testimonial">-->
+          <!--<div class="icon">-->
+            <!--<i class="material-icons">format_quote</i>-->
+          <!--</div>-->
+          <!--<div class="card-content">-->
+            <!--<h5 class="card-description">-->
+              <!--"Don't be scared of the truth because we need to restart the human foundation in truth. That's why I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is not so attractive"-->
+            <!--</h5>-->
+          <!--</div>-->
+
+          <!--<div class="footer">-->
+            <!--<h4 class="card-title">Gina Andrew</h4>-->
+            <!--<h6 class="category">@ginaandrew</h6>-->
+            <!--<div class="card-avatar">-->
+              <!--<a href="#pablo">-->
+                <!--<img class="img" src="">-->
+              <!--</a>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+
+      <!--<div class="col-md-4">-->
+        <!--<div class="card card-testimonial">-->
+          <!--<div class="icon">-->
+            <!--<i class="material-icons">format_quote</i>-->
+          <!--</div>-->
+          <!--<div class="card-content">-->
+            <!--<h5 class="card-description">-->
+              <!--"Your products, all the kits that I have downloaded from your site and worked with are sooo cool! I love the color mixtures, cards... everything. Keep up the great work!"-->
+            <!--</h5>-->
+          <!--</div>-->
+
+          <!--<div class="footer">-->
+            <!--<h4 class="card-title">George West</h4>-->
+            <!--<h6 class="category">@georgewest</h6>-->
+            <!--<div class="card-avatar">-->
+              <!--<a href="#pablo">-->
+                <!--<img class="img" src="">-->
+              <!--</a>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+
+    </div>
+
+  </div>
+</div>

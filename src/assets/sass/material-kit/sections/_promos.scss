@@ -1,0 +1,28 @@
+div.brand.promo-brand {
+  text-align: center;
+}
+
+div.main.main-raised.promo-main {
+
+}
+
+.card-content.card-promo > p > small {
+  text-transform: uppercase;
+}
+
+sp-landing-promo h1.title {
+  padding: 0px 20px;
+}
+
+sp-promo-alert-bar div.alert.alert-info {
+  position: fixed;
+  top: 90px;
+  z-index: 4;
+  width: 100%;
+}
+
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+  sp-promo-alert-bar div.alert.alert-info {
+    top: 145px !important;
+  }
+}

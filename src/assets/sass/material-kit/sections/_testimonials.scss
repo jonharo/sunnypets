@@ -1,0 +1,61 @@
+.testimonials-1{
+    .description{
+        margin-bottom: 50px;
+    }
+}
+
+/* ======================= */
+/* Testimonials */
+/* ======================= */
+
+div.testimonials-background {
+  background-image: url('/assets/img/testimonials/charlotte@0,33x.png');
+}
+
+div.testimonials-background:after {
+  background: rgba(255,224,178,1);
+  background: -moz-linear-gradient(45deg, rgba(255,224,178,1) 0%, rgba(225,183,77,0.4) 100%);
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(255,224,178,1)), color-stop(100%, rgba(225,183,77,0.4)));
+  background: -webkit-linear-gradient(45deg, rgba(255,224,178,1) 0%, rgba(225,183,77,0.4) 100%);
+  background: -o-linear-gradient(45deg, rgba(255,224,178,1) 0%, rgba(225,183,77,0.4) 100%);
+  background: -ms-linear-gradient(45deg, rgba(255,224,178,1) 0%, rgba(225,183,77,0.4) 100%);
+  background: linear-gradient(45deg, rgba(255,224,178,1) 0%, rgba(225,183,77,0.4) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffe0b2', endColorstr='#e1b74d', GradientType=1 );
+}
+
+@media (max-width: 768px) {
+  div.testimonials-1 h2.title {
+    max-width: 300px;
+    margin: 0px auto;
+    padding-bottom: 20px;
+  }
+}
+
+div.icon.yelp {
+  color: #D32323;
+}
+
+.star-rating {
+  width: 40px;
+}
+
+h2.title {
+  color: #3C4858;
+}
+
+h4.card-title {
+  font-family: Copse, Bitter, serif !important;
+}
+
+h5.description {
+  color: #445363;
+}
+
+h5.card-description {
+  font-family: 'Quicksand', sans-serif;
+}
+
+h6.category.yelp {
+  color: #D32323;
+}
+

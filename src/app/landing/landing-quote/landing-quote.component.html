@@ -1,0 +1,271 @@
+<div [ngSwitch]="isMobile()" class="contactus-2">
+  <!--<div id="contactUs2Map" class="map"></div>-->
+
+  <agm-map *ngSwitchCase="true"
+           [latitude]="mobileGMap.lat"
+           [longitude]="mobileGMap.long"
+           [zoom]="mobileGMap.zoom"
+           [styles]="mobileGMap.styles"
+           [scrollwheel]="mobileGMap.scrollwheel"
+           class="map">
+    <!--<sebm-google-map-marker-->
+    <!--[latitude]="gMap.markers.sunypets.lat"-->
+    <!--[longitude]="gMap.markers.sunypets.lng"></sebm-google-map-marker>-->
+  </agm-map>
+
+  <agm-map *ngSwitchDefault
+          [latitude]="fullGMap.lat"
+          [longitude]="fullGMap.long"
+          [zoom]="fullGMap.zoom"
+          [styles]="fullGMap.styles"
+          [scrollwheel]="fullGMap.scrollwheel"
+          class="map">
+    <!--<sebm-google-map-marker-->
+    <!--[latitude]="gMap.markers.sunypets.lat"-->
+    <!--[longitude]="gMap.markers.sunypets.lng"></sebm-google-map-marker>-->
+  </agm-map>
+
+  <div id="quote" [class.submitted]="submitted" class="card card-contact card-raised">
+
+    <div [class.header-success]="submitted"
+         [class.header-warning]="!submitted"
+         [ngSwitch]="submitted" class="header header-raised text-center">
+      <h4 *ngSwitchCase="false" class="card-title">Request a Quote</h4>
+      <h4 *ngSwitchCase="true" class="card-title">Your request is on it's way!</h4>
+    </div>
+
+    <div class="card-content">
+
+      <div id="submitted" *ngIf="submitted">
+        <p>
+          We'll be getting back to you faster than you can say
+          <br /><a href="https://en.wikipedia.org/wiki/Mexican_Hairless_Dog"  target="_blank">xoloitzcuintli</a>!
+          <br /><br />
+          <img src="/assets/img/gifs/cat_computer.gif">
+          <br />
+          <br />
+        </p>
+      </div>
+
+      <form novalidate="novalidate"
+            *ngIf="!submitted"
+            [formGroup]="quoteRequestForm"
+            (ngSubmit)="onSubmitForm(quoteRequestForm)">
+
+        <div class="row">
+
+          <!--First Name-->
+          <div class="col-md-3">
+            <div
+              [class.has-success]="quoteRequestForm.get('firstName').valid"
+              [class.has-error]="quoteRequestForm.get('firstName').touched && quoteRequestForm.get('firstName').invalid"
+              class="form-group label-floating form-warning">
+                <label for="firstName" class="control-label">First Name</label>
+                <input formControlName="firstName" id="firstName" type="text" class="form-control">
+                <span
+                  *ngIf="quoteRequestForm.get('firstName').touched"
+                  [ngSwitch]="quoteRequestForm.get('firstName').valid" class="form-control-feedback">
+                  <i *ngSwitchCase="true" class="material-icons">done</i>
+                  <i *ngSwitchCase="false" class="material-icons">clear</i>
+                </span>
+                <span *ngIf="quoteRequestForm.get('firstName').hasError('required') && quoteRequestForm.get('firstName').touched" class="form-error">
+                required
+                </span>
+              </div>
+          </div>
+
+          <!--Last Name-->
+          <div class="col-md-3">
+            <div
+              [class.has-success]="quoteRequestForm.get('lastName').touched"
+              class="form-group label-floating form-warning">
+              <label for="lastName" class="control-label">Last Name</label>
+              <input formControlName="lastName" id="lastName" type="text" class="form-control">
+              <span
+                *ngIf="quoteRequestForm.get('lastName').touched"
+                class="form-control-feedback">
+                <i class="material-icons">done</i>
+              </span>
+            </div>
+          </div>
+
+          <!--Email-->
+          <div class="col-md-6">
+            <div
+              [class.has-success]="quoteRequestForm.get('email').valid"
+              [class.has-error]="quoteRequestForm.get('email').touched && (quoteRequestForm.get('email').hasError('email') || quoteRequestForm.get('email').invalid)"
+              class="form-group label-floating form-warning">
+              <label for="email" class="control-label">Email address</label>
+              <input formControlName="email" id="email" type="email" class="form-control">
+              <span
+                *ngIf="quoteRequestForm.get('email').touched"
+                [ngSwitch]="quoteRequestForm.get('email').hasError('email') || quoteRequestForm.get('email').hasError('required')" class="form-control-feedback">
+                <i *ngSwitchCase="false" class="material-icons">done</i>
+                <i *ngSwitchCase="true" class="material-icons">clear</i>
+              </span>
+              <span *ngIf="quoteRequestForm.get('email').touched && quoteRequestForm.get('email').hasError('email')" class="form-error">
+                invalid email
+              </span>
+              <span *ngIf="quoteRequestForm.get('email').touched && quoteRequestForm.get('email').hasError('required')" class="form-error">
+                required
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <!--Phone-->
+          <div class="col-md-6">
+            <div
+              [class.has-success]="quoteRequestForm.get('tel').valid"
+              [class.has-error]="quoteRequestForm.get('tel').touched && (quoteRequestForm.get('tel').invalid || quoteRequestForm.get('tel').hasError('required'))"
+              class="form-group label-floating form-warning">
+              <label for="tel" class="control-label">Phone</label>
+              <input formControlName="tel" id="tel" type="tel" class="form-control">
+              <span
+                *ngIf="quoteRequestForm.get('tel').touched"
+                [ngSwitch]="quoteRequestForm.get('tel').valid" class="form-control-feedback">
+                <i *ngSwitchCase="true" class="material-icons">done</i>
+                <i *ngSwitchCase="false" class="material-icons">clear</i>
+              </span>
+              <span *ngIf="quoteRequestForm.get('tel').touched && quoteRequestForm.get('tel').hasError('required')" class="form-error">
+                required
+              </span>
+              <span *ngIf="quoteRequestForm.get('tel').touched && quoteRequestForm.get('tel').hasError('phone')" class="form-error">
+                invalid phone (555) 555-5555
+              </span>
+            </div>
+          </div>
+
+          <!--Neighborhood-->
+          <div class="col-md-6">
+            <div
+              [class.has-success]="quoteRequestForm.get('neighborhood').valid"
+              [class.has-error]="quoteRequestForm.get('neighborhood').touched && quoteRequestForm.get('neighborhood').invalid"
+              class="form-group label-floating form-warning">
+              <label for="neighborhood" class="control-label">Neighborhood</label>
+              <input formControlName="neighborhood" id="neighborhood" type="text" class="form-control">
+              <span
+                *ngIf="quoteRequestForm.get('neighborhood').touched"
+                [ngSwitch]="quoteRequestForm.get('neighborhood').valid" class="form-control-feedback">
+                <i *ngSwitchCase="true" class="material-icons">done</i>
+                <i *ngSwitchCase="false" class="material-icons">clear</i>
+              </span>
+              <span *ngIf="quoteRequestForm.get('neighborhood').hasError('required') && quoteRequestForm.get('neighborhood').touched" class="form-error">
+                required
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-6">
+
+            <!--<div-->
+              <!--[class.has-success]="quoteRequestForm.get('services').touched"-->
+              <!--[class.has-error]="quoteRequestForm.get('services').touched && quoteRequestForm.get('services').hasError('required')"-->
+              <!--class="form-group label-floating form-warning">-->
+              <!--<label for="services" class="control-label">Services</label>-->
+              <!--<select multiple id="services" formControlName="services" class="select form-control">-->
+                <!--<option value="Cat Sitting">Cat Sitting</option>-->
+                <!--<option value="Dog Walking">Dog Walking</option>-->
+                <!--<option value="Dog Daycare">Dog Daycare</option>-->
+                <!--<option value="Dog Boarding">Dog Boarding</option>-->
+                <!--<option value="Overnight Care">Overnight Care</option>-->
+              <!--</select>-->
+            <!--</div>-->
+
+            <!--Services Input-->
+            <div
+              [class.has-error]="quoteRequestForm.get('services').touched && quoteRequestForm.get('services').hasError('required')"
+              [class.has-success]="quoteRequestForm.get('services').touched && !quoteRequestForm.get('services').hasError('required')"
+              class="form-group label-floating form-warning">
+              <label for="services" class="control-label">Services</label>
+              <input formControlName="services" id="services" type="text" class="form-control">
+              <span
+                *ngIf="quoteRequestForm.get('services').touched"
+                [ngSwitch]="quoteRequestForm.get('services').valid" class="form-control-feedback">
+                <i *ngSwitchCase="true" class="material-icons">done</i>
+                <i *ngSwitchCase="false" class="material-icons">clear</i>
+              </span>
+              <span *ngIf="quoteRequestForm.get('services').invalid && quoteRequestForm.get('services').touched" class="form-error">
+                required i.e. dog walking, cat sitting
+              </span>
+            </div>
+
+          </div>
+
+          <!--Pet Name-->
+          <div class="col-md-3">
+            <div
+              [class.has-success]="quoteRequestForm.get('petName').valid"
+              [class.has-error]="quoteRequestForm.get('petName').touched && quoteRequestForm.get('petName').hasError('required')"
+              class="form-group label-floating form-warning">
+              <label for="petName" class="control-label">Pet Name</label>
+              <input formControlName="petName" id="petName" type="text" class="form-control">
+              <span
+                *ngIf="quoteRequestForm.get('petName').touched"
+                [ngSwitch]="quoteRequestForm.get('petName').valid" class="form-control-feedback">
+                <i *ngSwitchCase="true" class="material-icons">done</i>
+                <i *ngSwitchCase="false" class="material-icons">clear</i>
+              </span>
+              <span *ngIf="quoteRequestForm.get('petName').invalid && quoteRequestForm.get('petName').touched" class="form-error">
+                required
+              </span>
+            </div>
+          </div>
+
+          <!--Species-->
+          <div class="col-md-3">
+            <div
+              [class.has-error]="quoteRequestForm.get('species').touched && quoteRequestForm.get('species').invalid"
+              [class.has-success]="quoteRequestForm.get('species').valid"
+              class="form-group label-floating form-warning">
+              <label for="species" class="control-label">Dog, Cat?</label>
+              <input formControlName="species" id="species" type="text" class="form-control">
+              <span
+                *ngIf="quoteRequestForm.get('species').touched"
+                [ngSwitch]="quoteRequestForm.get('species').valid" class="form-control-feedback">
+                <i *ngSwitchCase="true" class="material-icons">done</i>
+                <i *ngSwitchCase="false" class="material-icons">clear</i>
+              </span>
+              <span *ngIf="quoteRequestForm.get('species').invalid && quoteRequestForm.get('species').touched" class="form-error">
+                required
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+        <!--Message-->
+        <div
+          [ngClass]="{'has-success': quoteRequestForm.get('message').touched}"
+          class="form-group label-floating form-warning">
+          <label for="message" class="control-label">Additional Info</label>
+          <textarea formControlName="message" class="form-control" id="message" rows="5"></textarea>
+          <span
+            *ngIf="quoteRequestForm.get('message').touched"
+            class="form-control-feedback">
+                <i class="material-icons">done</i>
+          </span>
+        </div>
+
+        <!--button-->
+        <div class="row">
+          <div class="col-md-6 col-md-offset-6">
+            <button type="submit" class="btn btn-warning pull-right" [disabled]="(quoteRequestForm.invalid)">Submit</button>
+          </div>
+        </div>
+
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

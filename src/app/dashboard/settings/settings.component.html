@@ -1,0 +1,392 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-10">
+
+        <!--<button class="btn-lg" (click)="getAuthState()">Get AuthState</button>-->
+        <!--<button class="btn-lg" (click)="getAuthInfo()">Get Info</button>-->
+        <!--<button class="btn-lg" (click)="getFireBaseProfile()">Get Info</button>-->
+        <!--<br>-->
+
+        <div class="card">
+          <div class="card-header card-header-icon"
+               data-background-color="rose">
+            <i class="material-icons">face</i>
+          </div>
+
+          <div class="card-content">
+            <h4 class="card-title">My Profile -
+              <small class="category">
+                SunnyPet Parent since
+                <span class="member_since">{{ (user$ | async)?.registrationDate | date:'MMMM y' }}</span>
+              </small>
+            </h4>
+
+
+            <form novalidate
+                  [formGroup]="contactInfoForm"
+                  (ngSubmit)="updateForm('contactInfo', contactInfoForm)">
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div [ngClass]="(contactInfoForm.get('firstName').invalid)?'has-error':'has-success'"
+                       class="form-group
+                              label-floating
+                              form-warning">
+                    <label for="firstName"
+                           class="control-label">First Name</label>
+                    <input formControlName="firstName"
+                           id="firstName"
+                           class="form-control"
+                           name="firstName"
+                           required>
+                    <span *ngIf="contactInfoForm.get('firstName').hasError('required')"
+                          class="form-error">
+                      <small>required</small>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div [ngClass]="(contactInfoForm.get('lastName').invalid)?'has-error':'has-success'"
+                       class="form-group
+                              label-floating
+                              form-warning">
+                    <label for="lastName"
+                           class="control-label">Last Name</label>
+                    <input formControlName="lastName"
+                           id="lastName"
+                           class="form-control"
+                           name="lastName"
+                           required>
+                    <span *ngIf="contactInfoForm.get('lastName').hasError('required')"
+                          class="form-error">
+                      <small>required</small>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div [ngClass]="(contactInfoForm.get('streetAddress').invalid)?'has-error':'has-success'"
+                       class="form-group
+                              label-floating
+                              form-warning">
+                    <label for="streetAddress"
+                           class="control-label">Street Address</label>
+                    <input formControlName="streetAddress"
+                           id="streetAddress"
+                           class="form-control"
+                           name="streetAddress"
+                           required>
+                    <span *ngIf="contactInfoForm.get('streetAddress').hasError('required')"
+                          class="form-error">
+                      <small>required</small>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="col-sm-3">
+                  <div [ngClass]="(contactInfoForm.get('zipCode').invalid)?'has-error':'has-success'"
+                       class="form-group
+                              label-floating
+                              form-warning">
+                    <label for="zipCode"
+                           class="control-label">Zip Code</label>
+                    <input formControlName="zipCode"
+                           id="zipCode"
+                           class="form-control"
+                           name="zipCode"
+                           required>
+                    <span *ngIf="contactInfoForm.get('zipCode').hasError('required')"
+                          class="form-error">
+                      <small>required</small>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="col-sm-3">
+                  <div [ngClass]="(contactInfoForm.get('neighborhood').invalid)?'has-error':'has-success'"
+                       class="form-group
+                              label-floating
+                              form-warning">
+                    <label for="neighborhood"
+                           class="control-label">Neighborhood</label>
+                    <input formControlName="neighborhood"
+                           id="neighborhood"
+                           class="form-control"
+                           name="neighborhood"
+                           required>
+                    <span *ngIf="contactInfoForm.get('neighborhood').hasError('required')"
+                          class="form-error">
+                      <small>required</small>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div [ngClass]="(contactInfoForm.get('mobilePhone').invalid)?'has-error':'has-success'"
+                       class="form-group
+                              label-floating
+                              form-warning">
+                    <label for="mobilePhone"
+                           class="control-label">Mobile Phone</label>
+                    <input formControlName="mobilePhone"
+                           id="mobilePhone"
+                           class="form-control"
+                           name="mobilePhone"
+                           required>
+
+                    <span *ngIf="contactInfoForm.get('mobilePhone').hasError('required')"
+                          class="form-error">
+                      <small>required</small>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div [ngClass]="(contactInfoForm.get('email').invalid)?'has-error':'has-success'"
+                       class="form-group
+                              label-static
+                              form-warning">
+                    <label for="email"
+                           class="control-label">Email</label>
+                    <input formControlName="email"
+                           id="email"
+                           class="form-control"
+                           name="email"
+                           required>
+
+                    <span *ngIf="contactInfoForm.get('email').hasError('required')"
+                          class="form-error">
+                      <small>required</small>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+
+              <button type="submit"
+                      class="btn btn-rose pull-right"
+                      [disabled]="contactInfoForm.invalid">Update</button>
+              <div class="clearfix"></div>
+
+            </form>
+
+          </div>
+        </div>
+
+
+
+        <div class="card">
+          <div class="card-header card-header-icon"
+               data-background-color="rose">
+            <i class="material-icons">local_hospital</i>
+          </div>
+
+          <div class="card-content">
+            <h4 class="card-title">Emergency Contacts
+            </h4>
+
+            <form novalidate
+                  [formGroup]="ecForm"
+                  (ngSubmit)="updateForm('emergencyContacts', ecForm)">
+
+              <div class="row">
+                <div class="col-sm-12">
+                  <h6>Contact 1 -
+                    <small class="category">required</small>
+                  </h6>
+                </div>
+
+                <div class="col-sm-4">
+                  <div [ngClass]="(ecForm.get('ec1Name').invalid)?'has-error':'has-success'"
+                       class="form-group
+                              label-floating
+                              form-warning">
+                    <label for="ec1Name"
+                           class="control-label">Name</label>
+                    <input id="ec1Name"
+                           class="form-control"
+                           name="ec1Name"
+                           formControlName="ec1Name">
+                    <span *ngIf="ecForm.get('ec1Name').hasError('required')"
+                          class="form-error">
+                      <small>required</small>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="col-sm-4">
+                  <div [ngClass]="(ecForm.get('ec1Relation').invalid)?'has-error':'has-success'"
+                       class="form-group
+                              label-floating
+                              form-warning">
+                    <label for="ec1Relation"
+                           class="control-label">Relation</label>
+                    <input id="ec1Relation"
+                           class="form-control"
+                           name="ec1Relation"
+                           formControlName="ec1Relation">
+                    <span *ngIf="ecForm.get('ec1Relation').hasError('required')"
+                          class="form-error">
+                      <small>required</small>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="col-sm-4">
+                  <div [ngClass]="(ecForm.get('ec1Phone').invalid)?'has-error':'has-success'"
+                       class="form-group
+                                label-floating
+                                form-warning">
+                    <label for="ec1Phone"
+                           class="control-label">Mobile Phone</label>
+                    <input id="ec1Phone"
+                           class="form-control"
+                           name="ec1Phone"
+                           formControlName="ec1Phone">
+                    <span *ngIf="ecForm.get('ec1Phone').hasError('required')"
+                          class="form-error">
+                        <small>required</small>
+                      </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-12">
+                  <h6>Contact 2 -
+                    <small class="category">optional</small>
+                  </h6>
+                </div>
+
+                <div class="col-sm-4">
+                  <div class="form-group
+                              label-floating
+                              form-warning">
+                    <label for="firstName"
+                           class="control-label">Name</label>
+                    <input id="ec2Name"
+                           class="form-control"
+                           name="ec2Name"
+                           formControlName="ec2Name">
+                  </div>
+                </div>
+
+                <div class="col-sm-4">
+                  <div class="form-group
+                              label-floating
+                              form-warning">
+                    <label for="ec2Relation"
+                           class="control-label">Relation</label>
+                    <input id="ec2Relation"
+                           class="form-control"
+                           name="ec1Relation"
+                           formControlName="ec2Relation">
+                  </div>
+                </div>
+
+                <div class="col-sm-4">
+                  <div class="form-group
+                                label-floating
+                                form-warning">
+                    <label for="ec2Phone"
+                           class="control-label">Mobile Phone</label>
+                    <input id="ec2Phone"
+                           class="form-control"
+                           name="ec1Phone"
+                           formControlName="ec2Phone">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-12">
+                  <h6>Contact 3 -
+                    <small class="category">optional</small>
+                  </h6>
+                </div>
+
+                <div class="col-sm-4">
+                  <div class="form-group
+                              label-floating
+                              form-warning">
+                    <label for="firstName"
+                           class="control-label">Name</label>
+                    <input id="ec3Name"
+                           class="form-control"
+                           name="ec3Name"
+                           formControlName="ec3Name">
+                  </div>
+                </div>
+
+                <div class="col-sm-4">
+                  <div class="form-group
+                              label-floating
+                              form-warning">
+                    <label for="ec3Relation"
+                           class="control-label">Relation</label>
+                    <input id="ec3Relation"
+                           class="form-control"
+                           name="ec1Relation"
+                           formControlName="ec3Relation">
+                  </div>
+                </div>
+
+                <div class="col-sm-4">
+                  <div class="form-group
+                                label-floating
+                                form-warning">
+                    <label for="ec3Phone"
+                           class="control-label">Mobile Phone</label>
+                    <input id="ec3Phone"
+                           class="form-control"
+                           name="ec1Phone"
+                           formControlName="ec3Phone">
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit"
+                      class="btn btn-rose pull-right"
+                      [disabled]="ecForm.invalid">Update</button>
+              <div class="clearfix"></div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!--<div class="col-md-4">-->
+      <!--<div class="card card-profile">-->
+      <!--<div class="card-avatar">-->
+      <!--<a href="#pablo">-->
+      <!--<img class="img" src="../../assets/img/faces/marc.jpg" />-->
+      <!--</a>-->
+      <!--</div>-->
+      <!--<div class="card-content">-->
+      <!--<h6 class="category text-gray">CEO / Co-Founder</h6>-->
+      <!--<h4 class="card-title">Alec Thompson</h4>-->
+      <!--<p class="description">-->
+      <!--Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...-->
+      <!--</p>-->
+      <!--<a href="#pablo" class="btn btn-rose btn-round">Follow</a>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+
+
+
+
+    </div>
+  </div>
+</div>

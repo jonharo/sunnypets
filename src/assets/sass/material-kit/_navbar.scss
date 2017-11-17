@@ -1,0 +1,419 @@
+
+
+.navbar {
+  border: 0;
+  border-radius: $border-radius-base;
+  //@include shadow-big-navbar();
+
+  @extend .animation-transition-fast;
+
+  padding: 10px 0;
+
+  .navbar-brand {
+    position: relative;
+    height: 50px;
+    line-height: 30px;
+    color: inherit;
+    padding: 10px 15px;
+
+    &:hover,
+    &:focus {
+      color: inherit;
+      background-color: transparent;
+    }
+  }
+
+
+
+  .navbar-text {
+    color: inherit;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .navbar-nav {
+    > li > a {
+      color: inherit;
+      padding-top: 15px;
+      padding-bottom: 15px;
+
+      font-weight: $font-weight-default;
+      font-size: $mdb-btn-font-size-base;
+      text-transform: uppercase;
+
+      border-radius: $border-radius-base;
+
+      &:hover,
+      &:focus {
+        color: inherit;
+        background-color: transparent;
+      }
+
+
+      .material-icons,
+      .fa{
+            font-size: 20px;
+            max-width: 24px;
+      }
+
+      &:not(.btn-just-icon){
+          .fa{
+            position: relative;
+            top: 2px;
+            margin-top: -4px;
+            margin-right: 4px;
+          }
+      }
+    }
+
+    > li > .dropdown-menu{
+        margin-top: -20px;
+    }
+
+    > li.open > .dropdown-menu{
+        margin-top: 0;
+    }
+
+    > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: inherit;
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: inherit;
+        background-color: transparent;
+        opacity: 0.9;
+      }
+    }
+    .profile-photo{
+        padding: 0;
+        .profile-photo-small{
+            height: 40px;
+            width: 40px;
+        }
+    }
+
+    .caret{
+        margin-top: -3px;
+    }
+
+  }
+
+  // Darken the responsive nav toggle
+  .navbar-toggle {
+    border: 0;
+    &:hover,
+    &:focus {
+      background-color: transparent;
+    }
+    .icon-bar {
+      background-color: inherit;
+      border: 1px solid;
+      color: $navbar-default-toggle-icon-bar-bg;
+    }
+  }
+
+  .navbar-default .navbar-toggle,
+  .navbar-inverse .navbar-toggle {
+    border-color: transparent;
+  }
+
+  .navbar-collapse,
+  .navbar-form {
+    border-top: none;
+    box-shadow: none;
+  }
+
+  // Dropdowns
+  .navbar-nav {
+    > .open > a {
+      &,
+      &:hover,
+      &:focus {
+        background-color: transparent;
+        color: inherit;
+      }
+    }
+
+    @media (max-width: $grid-float-breakpoint-max) {
+      .navbar-text {
+        color: inherit;
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+
+      // Dropdowns get custom display
+      .open .dropdown-menu {
+        > .dropdown-header {
+          border: 0;
+          color: inherit;
+        }
+        .divider {
+          border-bottom: 1px solid;
+          opacity: 0.08;
+        }
+      }
+    }
+  }
+
+    &.navbar-default{
+        .logo-container .brand{
+            color: $gray;
+        }
+    }
+
+  .navbar-link {
+    color: inherit;
+    &:hover {
+      color: inherit;
+    }
+  }
+
+  .btn{
+      margin-top: 0;
+      margin-bottom: 0;
+  }
+  .btn-link {
+    color: inherit;
+    &:hover,
+    &:focus {
+      color: inherit;
+    }
+    &[disabled],
+    fieldset[disabled] & {
+      &:hover,
+      &:focus {
+        color: inherit;
+      }
+    }
+  }
+
+  .navbar-form {
+    margin: 4px 0 0;
+    .form-group {
+      margin: 0;
+      padding: 0;
+
+      .material-input:before,
+      &.is-focused .material-input:after {
+        background-color: inherit;
+      }
+    }
+
+    .form-group .form-control,
+    .form-control {
+      border-color: inherit;
+      color: inherit;
+      padding: 0;
+      margin: 0;
+
+      // re-normalize inputs in a navbar the size of standard bootstrap since our normal inputs are larger by spec than bootstrap
+      //---
+      //height: $mdb-input-height-base;
+      $bs-line-height-base: 1.428571429 !default;
+      $bs-line-height-computed:    floor(($font-size-base * $bs-line-height-base)) !default; // ~20px
+      height: ($bs-line-height-computed + 8px);
+      font-size: $font-size-base;
+      line-height: $bs-line-height-base;
+      //---
+    }
+  }
+
+  // SASS conversion note: please mirror any content change in _mixins-shared.scss navbar-variations-content
+  @include navbar-variations(unquote(".navbar"), unquote(""), $brand-primary);
+
+  &-inverse {
+    background-color: $indigo;
+  }
+
+  &.navbar-transparent{
+      background-color: transparent;
+      box-shadow: none;
+      color: #fff;
+      padding-top: 25px;
+
+      .logo-container .brand{
+          color: $white-color;
+      }
+  }
+  &-fixed-top{
+      border-radius: 0;
+  }
+  @media (max-width: $screen-md-max) {
+
+    .navbar-brand {
+      height: 50px;
+      padding: 10px 15px;
+    }
+/*
+    .navbar-form {
+      margin-top: 10px;
+    }
+*/
+
+    .navbar-nav > li > a {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+  }
+
+    .alert{
+        border-radius: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 85px;
+        width: 100%;
+        z-index: 3;
+        transition: all 0.3s;
+    }
+}
+
+.nav-align-center{
+    text-align: center;
+
+    .nav-pills{
+        display: inline-block;
+    }
+}
+.navbar-absolute{
+    position: absolute;
+    width: 100%;
+    padding-top: 10px;
+    z-index: 1029;
+}
+
+/* ======================= */
+/* Navbar */
+/* ======================= */
+
+.navbar .btn {
+  margin-top: 7px;
+  margin-right: 7px;
+}
+
+.navBtn {
+  color: white;
+}
+
+.navbar .navbar-collapse,
+.navbar .navbar-form {
+  text-align: center;
+}
+
+.btn.btn-sm.btn-warning.btn-round {
+  padding: 7px 0px;
+  margin: 7px 15px;
+  min-width: 100px;
+}
+
+.navbar-nav {
+  margin: 2.5px -15px;
+}
+
+@media (max-width: 991px) {
+  .navbar.navbar-transparent {
+    background-color: white;
+    color: #555555;
+    border: 0;
+    border-radius: 0px;
+    box-shadow: 0 10px 20px -12px rgba(0, 0, 0, 0.42), 0 3px 20px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+  }
+}
+
+a.navbar-brand {
+  color: #ffa726;
+  font-family: 'Pacifico', cursive;
+  font-size: xx-large;
+  margin-right: 20px;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.navbar .navbar-brand:visited {
+  color: #ffa726;
+}
+
+a.navbar-brand:visited {
+  color: #ffa726;
+  font-family: 'Pacifico', cursive;
+  font-size: xx-large;
+  margin-right: 20px;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.navbar .navbar-nav > li > a {
+  font-size: 13px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.nav.navbar-nav.btn-right > li > a {
+  /*padding: 15px;*/
+  /*margin: 0px;*/
+  padding: 7px 15px;
+  margin: 7px 0px;
+  transition: all 150ms cubic-bezier(0.65, 0.05, 0.36, 1);
+  border-radius: 30px;
+}
+
+.nav.navbar-nav.btn-right > li > a:hover {
+  color: #FF9800;
+  font-weight: bold;
+  /*box-shadow: 0 14px 26px -12px rgba(255, 152, 0, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(255, 152, 0, 0.2);*/
+}
+
+/*.nav.navbar-nav.btn-right > li > a:active {*/
+
+/*}*/
+
+btn-warning > a {
+  transition: all 150ms cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+btn-warning > a:hover {
+  font-size: large;
+  font-weight: bold;
+  color: #ffa726;
+}
+
+a.navbar-brand {
+  cursor: pointer;
+  display: inline-flex;
+}
+
+a.navbar-brand > img {
+  padding-left: 5px;
+  height: 35px;
+}
+
+nav.navbar-transparent img {
+  height: 35px;
+  /*filter: invert(100%) contrast(300%)*/
+  /*filter: saturate(100%);*/
+}
+
+@media (max-width: 1199px) {
+  .navbar .navbar-brand {
+    height: 50px;
+    padding: 10px 15px;
+    color: #ffa726;
+  }
+}
+
+.alert > .container {
+  text-align: center;
+}
+
+nav.navbar-transparent img.promo-icon, img.promo-icon {
+  display: inline;
+  height: 20px;
+  padding: 0px 10px 0px;
+}

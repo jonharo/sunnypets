@@ -1,0 +1,83 @@
+.pricing-1{
+    h2.title{
+        margin-bottom: 10px;
+    }
+
+    .card-separator{
+        width: 1px;
+        display: block;
+        height: 100%;
+        background-color: rgba($gray-color, .2);
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    &.section-image:after{
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+}
+
+.pricing-2{
+    .nav-pills{
+        display: inline-block;
+        margin-bottom: 50px;
+    }
+
+}
+
+.pricing-5{
+    .nav-pills{
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+}
+
+.pricing-3,
+.pricing-4{
+    .title{
+        margin-bottom: 10px;
+    }
+}
+
+/* ======================= */
+/* Rates */
+/* ======================= */
+
+div.pricing-2 {
+  margin-top: -40px;
+}
+
+h6.category {
+  font-family: 'Open Sans', sans-serif;
+}
+h1.card-title {
+  font-family: 'Copse', serif;
+}
+
+.pricing-2 .nav-pills {
+  margin-bottom: 20px;
+}
+
+h5.description {
+  margin-bottom: 20px;
+}
+
+div.content-warning > .btn {
+  color: #ffa726;
+}
+
+div.content-success > .btn {
+  color: #66bb6a;
+}
+
+div.content-rose > .btn {
+  color: #ec407a;
+}
+
+div.content-primary > .btn {
+  color: #ab47bc;
+}
+
+div.content-info > .btn {
+  color: #26c6da;
+}
